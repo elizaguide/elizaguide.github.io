@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKR Training - Instructor Notes</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%237a12d4'>👨‍🏫</text></svg>">
+    <link rel="stylesheet" href="public/mindvalley-font.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #7a12d4;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #7a12d4;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .intro {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #7a12d4;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #7a12d4;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .box-warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .box-success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .talking-point {
+            background: #e7f3ff;
+            border-left: 4px solid #7a12d4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: #7a12d4;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .timing-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 20px;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .timing-label {
+            font-weight: 600;
+            color: #7a12d4;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #7a12d4;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .checklist li::before {
+            content: '✓ ';
+            color: #7a12d4;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            margin: 20px 0;
+            padding: 15px 20px;
+            border-left: 4px solid #ffd700;
+            background: #fffaf0;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            h2 {
+                page-break-before: always;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .timing-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OKR Training - Instructor Guide</h1>
+            <p class="subtitle">Complete Delivery Notes for 60-Minute Session</p>
+            <p class="intro">Use this guide alongside the presentation. It includes detailed talking points, stories, facilitation tips, and the workshop flow.</p>
+        </header>
+
+        <section>
+            <h2>Pre-Session Setup (5 minutes before start)</h2>
+            <ul class="checklist">
+                <li>Open presentation.html in browser, full screen</li>
+                <li>Have student notes ready to share/print</li>
+                <li>Have a whiteboard for live examples</li>
+                <li>Have a timer for workshop segment (15 minutes)</li>
+                <li>Test keyboard navigation (arrow keys, spacebar, 'n' for notes)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Section 1: Opening & Context (5 minutes)</h2>
+
+            <h3>Slide 1: Title</h3>
+
+            <div class="talking-point">
+                <h4>Your Opening (2 minutes)</h4>
+                <p>Start with energy. This is NOT a boring productivity talk.</p>
+                <p style="margin-top: 10px;"><strong>What to say:</strong></p>
+                <p>"Today we're talking about the #1 thing that separates founders who 10x their business from those who grind for years with no progress: <strong>How they focus.</strong></p>
+                <p>Not intelligence. Not luck. Not even hard work. It's <em>focus.</em></p>
+                <p>Most founders fail because they're trying to do 20 things at once. By the end of today, you'll have a tool that lets you do 3-5 things exceptionally well.</p>
+                <p>That tool is called OKRs."</p>
+            </div>
+
+            <h3>Slides 2-3: What & Why</h3>
+
+            <div class="talking-point">
+                <h4>Key Teaching Point</h4>
+                <p>OKRs are not new. They're just a <strong>framework</strong> for what high performers have always done: decide what matters, and measure it.</p>
+                <p style="margin-top: 10px;"><strong>Emphasize:</strong> "If you're afraid to fail, you're not going to make radical innovation."</p>
+                <p>This is Vishen's core insight. OKRs make failure safe.</p>
+            </div>
+
+            <div class="box">
+                <h4>💡 Tip: Tell a Story</h4>
+                <p>Share a personal story about a time you chased too many things. What happened? How did focus change things?</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Section 2: The F.A.C.T.S. Framework (15 minutes)</h2>
+
+            <h3>Slides 4-6: Framework Deep Dive</h3>
+
+            <p><strong>This is the backbone. Spend TIME here.</strong></p>
+
+            <div class="talking-point">
+                <h4>F - FOCUS</h4>
+                <p><strong>Say:</strong> "The hardest part of entrepreneurship is saying 'no'. Focus means 'We will do THESE 3-5 things this quarter, and we won't do anything else.'"</p>
+                <p style="margin-top: 10px;"><strong>Example:</strong> Amazon started with books. Just books. Not electronics, clothing, furniture... for YEARS. That focus is why they won.</p>
+            </div>
+
+            <div class="talking-point">
+                <h4>A - ALIGNMENT</h4>
+                <p><strong>Say:</strong> "Your CFO is chasing revenue. Your product team is chasing features. Your marketing team is chasing vanity metrics. Everyone's frustrated."</p>
+                <p style="margin-top: 10px;"><strong>Example:</strong> When alignment works, magic happens. Everyone moves together. Decisions are easy because everyone knows the context.</p>
+            </div>
+
+            <div class="talking-point">
+                <h4>C - COMMITMENT</h4>
+                <p><strong>Say:</strong> "You set these OKRs together. Your team commits. Then you don't change them mid-quarter because 'something exciting came up.'"</p>
+                <p style="margin-top: 10px;"><strong>Key phrase:</strong> "Without commitment, OKRs are just wishful thinking."</p>
+            </div>
+
+            <div class="talking-point">
+                <h4>T - TRACKING</h4>
+                <p><strong>Say:</strong> "You check in every week. 15 minutes. 'Are we on track? What's blocking us? Do we need to adjust our tactics?'"</p>
+                <p style="margin-top: 10px;"><strong>Reality:</strong> This is where most companies fail. They set good OKRs, then lose visibility.</p>
+            </div>
+
+            <div class="talking-point">
+                <h4>S - STRETCHING</h4>
+                <p><strong>Say:</strong> "You set OKRs where you're 70% confident you can achieve them."</p>
+                <p style="margin-top: 10px;"><strong>Ask the room:</strong> "How many of you hit 100% of your goals last quarter?" (Most will raise hands)</p>
+                <p>"That means your goals aren't ambitious enough. Reset for next quarter."</p>
+            </div>
+
+            <div class="box">
+                <h4>💡 Interactive Moment</h4>
+                <p>Ask: "What would change if you only set goals where you're 70% confident?"</p>
+                <p>Let them respond. You're building psychological ownership.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Section 3: Types & Mistakes (10 minutes)</h2>
+
+            <h3>Slides 7-9: OKR Types & Common Pitfalls</h3>
+
+            <div class="talking-point">
+                <h4>Committed vs. Aspirational</h4>
+                <p><strong>Say:</strong> "Most founders only set one type: easy goals they know they can hit.</p>
+                <p>But a healthy quarter has BOTH:</p>
+                <ul>
+                    <li><strong>Committed:</strong> "We will hit $10M ARR" (90% confident)</li>
+                    <li><strong>Aspirational:</strong> "We will launch a new product line" (70% confident)</li>
+                </ul>
+                <p>The right mix: 60% committed, 40% aspirational."</p>
+            </div>
+
+            <div class="talking-point">
+                <h4>Common Mistakes</h4>
+                <p><strong>The #1 mistake I see:</strong> "Founders set 15 OKRs. Then wonder why nothing gets done.</p>
+                <p><strong>FOCUS MEANS NO.</strong></p>
+                <p>Set 3-5 company OKRs. Not 15. Not 10. 3-5."</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Section 4: How to Set OKRs (10 minutes)</h2>
+
+            <h3>Slide 10: The 6-Step Process</h3>
+
+            <p><strong>Walk through this step-by-step. This is operational, so slow down.</strong></p>
+
+            <div class="timing-row">
+                <div class="timing-label">Step 1</div>
+                <div>
+                    <strong>Define Core Purpose:</strong> What's your 1-3 year mission? Break it into aspirational objectives.
+                </div>
+            </div>
+
+            <div class="timing-row">
+                <div class="timing-label">Step 2</div>
+                <div>
+                    <strong>Identify 3-5 Company OKRs:</strong> From your core purpose. Not 20. Focus on what moves the needle.
+                </div>
+            </div>
+
+            <div class="timing-row">
+                <div class="timing-label">Step 3</div>
+                <div>
+                    <strong>Break into Key Results:</strong> For each objective, create 3-5 measurable key results.
+                </div>
+            </div>
+
+            <div class="timing-row">
+                <div class="timing-label">Step 4</div>
+                <div>
+                    <strong>Cascade to Teams:</strong> Each team creates OKRs that support company goals (vertical alignment).
+                </div>
+            </div>
+
+            <div class="timing-row">
+                <div class="timing-label">Step 5</div>
+                <div>
+                    <strong>Make Them Public:</strong> Everyone sees everyone's OKRs. Transparency drives accountability.
+                </div>
+            </div>
+
+            <div class="timing-row">
+                <div class="timing-label">Step 6</div>
+                <div>
+                    <strong>Track Weekly:</strong> 15-min check-ins every Monday. No surprises.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Section 5: Workshop (15 minutes)</h2>
+
+            <h3>Slides 11-12: Hands-On OKR Building</h3>
+
+            <div class="talking-point">
+                <h4>Your Role</h4>
+                <p><strong>Give clear instructions (1 minute):</strong></p>
+                <p>"Alright, your turn. You have 15 minutes to draft ONE OKR for your business.</p>
+                <p>I don't care if it's perfect. I care if it's real.</p>
+                <p>Use the template in the student notes:</p>
+                <ul>
+                    <li>Objective (1-2 sentences, inspirational)</li>
+                    <li>3 Key Results (specific, measurable, ambitious)</li>
+                </ul>
+                <p>I'll walk around. Ask me questions. Let's make this real."</p>
+            </div>
+
+            <div class="box-success">
+                <h4>✅ During Workshop (Next 13 minutes)</h4>
+                <p>Walk around the room. This is where real learning happens.</p>
+                <p><strong>For each student, ask:</strong></p>
+                <ul>
+                    <li>"What's your Objective?"</li>
+                    <li>"How will you measure success?"</li>
+                    <li>"Are you 70% confident or 95%?"</li>
+                </ul>
+                <p><strong>If vague:</strong> Challenge them: "'Improve marketing' — how? What metric? What's the target?"</p>
+                <p><strong>If too easy:</strong> Push: "If you're 95% confident, bump it up. What if you 3x that target?"</p>
+            </div>
+
+            <div class="box">
+                <h4>💡 Pro Tip</h4>
+                <p>Ask 2-3 students to share their draft during workshop. Praise what's good. Gently challenge what needs work. This public feedback teaches everyone.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Section 6: Tracking & Closing (5 minutes)</h2>
+
+            <h3>Slides 13-15: Closing Message</h3>
+
+            <div class="talking-point">
+                <h4>Recap</h4>
+                <p>Quickly recap the 7 key takeaways. They'll remember these if you emphasize the 70% rule one more time.</p>
+            </div>
+
+            <div class="talking-point">
+                <h4>Your Closing (2 minutes)</h4>
+                <p style="margin-top: 10px;">"Here's what I want you to do this week:</p>
+                <ol>
+                    <li>Finalize ONE OKR for your business using what we covered today.</li>
+                    <li>Share it with me (optional, but I'll give feedback).</li>
+                    <li>Put it somewhere visible. Your bathroom mirror. Your desk. Your phone lock screen.</li>
+                    <li>Every Monday morning, ask: 'Are we on track?'</li>
+                </ol>
+                <p>That's it. One OKR. One quarter. See what happens.</p>
+                <p>Most of you will 10x your business in the next 18 months because of this ONE tool. Not because you work harder. Because you work smarter.</p>
+                <p>Questions?"</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Timing Breakdown</h2>
+
+            <table>
+                <tr>
+                    <th>Section</th>
+                    <th>Duration</th>
+                    <th>Slides</th>
+                </tr>
+                <tr>
+                    <td>Opening & Context</td>
+                    <td>5 min</td>
+                    <td>1-3</td>
+                </tr>
+                <tr>
+                    <td>F.A.C.T.S. Framework</td>
+                    <td>15 min</td>
+                    <td>4-6</td>
+                </tr>
+                <tr>
+                    <td>Types & Mistakes</td>
+                    <td>10 min</td>
+                    <td>7-9</td>
+                </tr>
+                <tr>
+                    <td>How to Set OKRs</td>
+                    <td>10 min</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td><strong>Workshop (Hands-On)</strong></td>
+                    <td><strong>15 min</strong></td>
+                    <td>11-12</td>
+                </tr>
+                <tr>
+                    <td>Tracking & Closing</td>
+                    <td>5 min</td>
+                    <td>13-15</td>
+                </tr>
+                <tr>
+                    <td><strong>TOTAL</strong></td>
+                    <td><strong>60 min</strong></td>
+                    <td></td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Facilitation Tips</h2>
+
+            <h3>Energy Management</h3>
+            <ul>
+                <li><strong>Start hot.</strong> Opening 5 minutes are crucial. Set the tone.</li>
+                <li><strong>Vary pacing.</strong> Lecture 5 min, story 2 min, ask question 1 min. Mix it up.</li>
+                <li><strong>Peak at workshop.</strong> The best part is hands-on. Don't rush.</li>
+                <li><strong>Close strong.</strong> End with a challenge, not a summary.</li>
+            </ul>
+
+            <h3>Handling Questions</h3>
+            <ul>
+                <li><strong>During slides:</strong> "Great question. Write it down. Let's discuss during workshop."</li>
+                <li><strong>During workshop:</strong> "Exactly. That's the thinking that leads to good OKRs."</li>
+                <li><strong>After:</strong> "Come to office hours. We'll dig deeper."</li>
+            </ul>
+
+            <h3>If Things Go Wrong</h3>
+            <ul>
+                <li><strong>Running late on slides?</strong> Skip Slide 9 (common mistakes). You can cover in notes.</li>
+                <li><strong>Workshop running long?</strong> That's fine. Lessons are learned hands-on.</li>
+                <li><strong>Technical issues?</strong> Presentation works offline.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Follow-Up (After Session)</h2>
+
+            <ul class="checklist">
+                <li>Send student notes link within 24 hours</li>
+                <li>Ask students to submit their ONE OKR draft by Friday</li>
+                <li>Provide 2-3 sentences of feedback on each</li>
+                <li>Offer office hours next week for deep dives</li>
+            </ul>
+
+            <div class="box-success">
+                <h4>✅ Success Indicators</h4>
+                <p>By end of session, students should be able to:</p>
+                <ul>
+                    <li>Define an OKR (Objective + Key Results)</li>
+                    <li>Explain the 70% confidence rule</li>
+                    <li>Identify committed vs. aspirational OKRs</li>
+                    <li>Draft one OKR for their business</li>
+                    <li>Explain why tracking weekly matters</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Resources for You</h2>
+            <ul>
+                <li><strong>John Doerr, "Measure What Matters"</strong> (the Bible)</li>
+                <li><strong>Andy Grove, "High Output Management"</strong> (Intel CEO who invented OKRs)</li>
+                <li><strong>Christina Wodtke, "Radical Focus"</strong> (methodology from a founder)</li>
+                <li><strong>OKR tracking tools:</strong> 15Five, Perdoo, Lattice</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>OKR Training - Instructor Guide | Mindvalley Entrepreneurship Mastery</p>
+            <p>Good luck. This changes careers. 💜</p>
+        </footer>
+    </div>
+</body>
+</html>

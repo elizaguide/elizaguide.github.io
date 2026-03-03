@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKR Training - Student Notes</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2300d4ff'>📖</text></svg>">
+    <link rel="stylesheet" href="public/mindvalley-font.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #7a12d4;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #7a12d4;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .intro {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #7a12d4;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #7a12d4;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .box {
+            background: #f9f9f9;
+            border-left: 4px solid #7a12d4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .box-highlight {
+            background: linear-gradient(135deg, rgba(122, 18, 212, 0.1) 0%, rgba(122, 18, 212, 0.05) 100%);
+            border-left: 4px solid #7a12d4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: #7a12d4;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #666;
+            margin: 20px 0;
+            padding: 15px 20px;
+            border-left: 4px solid #ffd700;
+            background: #fffaf0;
+        }
+
+        .checklist li::before {
+            content: '✓ ';
+            color: #7a12d4;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #7a12d4;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: #333;
+        }
+
+        .toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc ul {
+            margin: 10px 0;
+        }
+
+        .toc a {
+            color: #7a12d4;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            h2 {
+                page-break-before: always;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            table {
+                font-size: 0.9rem;
+            }
+            table th, table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OKRs: Student Notes</h1>
+            <p class="subtitle">Objectives & Key Results Training</p>
+            <p class="intro">Complete guide to understanding and implementing OKRs in your business. Use these notes alongside the presentation and workshop.</p>
+        </header>
+
+        <section>
+            <h2>What Are OKRs?</h2>
+            <p>An <strong>OKR</strong> is a goal-setting framework with two parts:</p>
+            <ol>
+                <li><strong>Objective</strong>: The qualitative goal — what you want to achieve</li>
+                <li><strong>Key Results</strong>: How you measure success — specific, quantitative outcomes</li>
+            </ol>
+
+            <p>OKRs help you decide what matters most and track progress toward it. They're used by Google, Amazon, Intel, and 90%+ of venture-backed companies.</p>
+
+            <div class="box-highlight">
+                <h4>Key Principle:</h4>
+                <p>OKRs bridge your <strong>long-term vision</strong> (where you're going) with <strong>short-term direction</strong> (what you do this quarter).</p>
+                <p><strong>Bold vision WITHOUT fluff. Specific direction WITHOUT losing the dream.</strong></p>
+            </div>
+
+            <h3>Not OKRs</h3>
+            <p>These are commonly confused with OKRs but are not:</p>
+            <ul>
+                <li><strong>Tasks:</strong> "Fix the bug" is a task, not an OKR</li>
+                <li><strong>Strategy:</strong> "Improve marketing" is too vague</li>
+                <li><strong>Metrics:</strong> "Track page views" is tracking, not a goal</li>
+                <li><strong>To-do lists:</strong> A list of everything you want to do</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Why OKRs Matter</h2>
+            <p>Most entrepreneurs and leaders have a clarity problem:</p>
+            <ul>
+                <li><strong>Too many priorities</strong> → Everything is important, so nothing is</li>
+                <li><strong>Misalignment</strong> → Teams work on different goals</li>
+                <li><strong>Vanity metrics</strong> → Tracking things that don't matter</li>
+                <li><strong>Busyness</strong> → A sign you've lost focus</li>
+            </ul>
+
+            <div class="box-highlight">
+                <h4>The Core Insight:</h4>
+                <p><strong>"If you're afraid to fail, you're not going to make radical innovation."</strong></p>
+                <p>OKRs make failure safe. You should miss some OKRs every quarter. That means you're stretching.</p>
+            </div>
+
+            <h3>How OKRs Solve This</h3>
+            <table>
+                <tr>
+                    <th>Problem</th>
+                    <th>OKR Solution</th>
+                </tr>
+                <tr>
+                    <td>Too many priorities</td>
+                    <td><strong>Focus:</strong> Limit to 3-5 OKRs per quarter</td>
+                </tr>
+                <tr>
+                    <td>Misalignment</td>
+                    <td><strong>Alignment:</strong> Everyone's OKRs connect vertically and horizontally</td>
+                </tr>
+                <tr>
+                    <td>Vanity metrics</td>
+                    <td><strong>Real metrics:</strong> Key Results track what moves the business</td>
+                </tr>
+                <tr>
+                    <td>No strategy</td>
+                    <td><strong>Strategy first:</strong> OKRs start with "What's our vision?"</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>The F.A.C.T.S. Framework</h2>
+            <p>John Doerr (venture capitalist, author of "Measure What Matters") created this framework. It's the backbone of healthy OKRs.</p>
+
+            <h3>F - FOCUS</h3>
+            <p><strong>Decide on 3-5 priorities per quarter. Don't do everything.</strong></p>
+            <p>Most entrepreneurs see 100 opportunities. If you pursue all of them, you complete none.</p>
+            <p>⚠️ <strong>Reality check:</strong> If you have more than 5 company-level OKRs, you don't have priorities. You have a to-do list.</p>
+
+            <h3>A - ALIGNMENT</h3>
+            <p><strong>OKRs ladder up from company → team → individual.</strong></p>
+            <pre>Company OKR: "Become #1 AI-first platform for entrepreneurs"
+  ↓
+Product Team OKR: "Build 5 new AI features"
+  ↓
+Product Manager OKR: "Launch Feature A by mid-quarter"</pre>
+            <p>When alignment works, decisions are easy: "Does this support our OKR?"</p>
+
+            <h3>C - COMMITMENT</h3>
+            <p><strong>You set OKRs together. Then you commit to them. Then you don't change them mid-quarter.</strong></p>
+            <p>OKRs only work if there's commitment. Every shiny object derails you without it.</p>
+            <p><strong>What changes mid-quarter:</strong> Tactics, resources, timeline</p>
+            <p><strong>What doesn't change:</strong> The goal itself, the deadline</p>
+
+            <h3>T - TRACKING</h3>
+            <p><strong>Review progress weekly. Adjust tactics as needed.</strong></p>
+            <p>Most teams set OKRs, then lose visibility. By August, nobody remembers what they committed to.</p>
+            <p><strong>Weekly check-in:</strong> 15 minutes. "Are we on track? What's blocking us? What do we need to adjust?"</p>
+
+            <h3>S - STRETCHING</h3>
+            <p><strong>Set OKRs where you're 70% confident of achievement.</strong></p>
+            <ul class="checklist">
+                <li>Too easy (95% confidence) → no growth</li>
+                <li>Too hard (50% confidence) → team panics</li>
+                <li>70% confidence → team grows + still wins</li>
+            </ul>
+
+            <div class="box-highlight">
+                <h4>The 70% Rule:</h4>
+                <p>Google targets 70% OKR achievement. If you hit 100% of OKRs every quarter, your OKRs are too easy.</p>
+                <p><strong>70% achievement = Winning.</strong></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Objective vs. Key Result</h2>
+
+            <h3>Objective</h3>
+            <ul>
+                <li>Qualitative (the "what")</li>
+                <li>Inspirational ("Become the go-to platform for solopreneurs")</li>
+                <li>Action-oriented (something you DO)</li>
+                <li>1-2 sentences max</li>
+            </ul>
+
+            <h3>Key Result</h3>
+            <ul>
+                <li>Quantitative (the "how much")</li>
+                <li>Specific metric ("Grow users from 50K to 150K")</li>
+                <li>Time-bound ("By end of Q2")</li>
+                <li>Measurable (no debate about success/failure)</li>
+            </ul>
+
+            <h3>Example</h3>
+            <div class="box">
+                <p><strong>Objective:</strong> "Establish ourselves as the #1 trusted AI partner for enterprise"</p>
+                <p><strong>Key Results:</strong></p>
+                <ul>
+                    <li>KR1: Land 5 Fortune 500 customers</li>
+                    <li>KR2: Grow annual contract value from $50K to $100K</li>
+                    <li>KR3: Achieve 85% customer retention</li>
+                    <li>KR4: Build NPS from 32 to 55</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Two Types of OKRs</h2>
+
+            <h3>Committed OKRs</h3>
+            <ul>
+                <li><strong>Confidence:</strong> 90%+</li>
+                <li><strong>Purpose:</strong> Keep the lights on. Maintain business continuity.</li>
+                <li><strong>Example:</strong> "Hit $10M ARR"</li>
+                <li><strong>If you miss:</strong> Requires explanation. This is a failure.</li>
+            </ul>
+
+            <h3>Aspirational OKRs</h3>
+            <ul>
+                <li><strong>Confidence:</strong> 60-70%</li>
+                <li><strong>Purpose:</strong> Moonshots. Breakthrough thinking.</li>
+                <li><strong>Example:</strong> "Launch a new product line"</li>
+                <li><strong>If you miss:</strong> Learning opportunity. This is expected.</li>
+            </ul>
+
+            <h3>The Right Mix</h3>
+            <p><strong>60% committed + 40% aspirational</strong></p>
+            <ul>
+                <li>All committed → Team gets bored, no growth</li>
+                <li>All aspirational → Team burns out, can't achieve basics</li>
+                <li>Balanced → Team grows + wins + stays motivated</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common Mistakes to Avoid</h2>
+
+            <h3>❌ Setting Too Many OKRs</h3>
+            <p>20 OKRs = nobody can focus. Result: nothing gets done. Stick to 3-5.</p>
+
+            <h3>❌ Confusing OKRs with Tasks</h3>
+            <p>❌ "Fix the bug" | ✅ "Improve product stability (reduce crash rate from 2% to 0.5%)"</p>
+
+            <h3>❌ Making OKRs Too Easy</h3>
+            <p>If you hit 100% of OKRs consistently, they're not ambitious enough.</p>
+
+            <h3>❌ Ignoring Alignment</h3>
+            <p>Team OKRs that don't support company OKRs = teams working at cross-purposes.</p>
+
+            <h3>❌ Set-and-Forget</h3>
+            <p>OKRs are only valuable if you track them weekly. Skip this, and OKRs become shelf-ware.</p>
+
+            <h3>❌ Using Vanity Metrics</h3>
+            <p>❌ "Increase page views" | ✅ "Convert 5% of visitors to paying customers"</p>
+
+            <h3>❌ Not Involving Your Team</h3>
+            <p>You set OKRs alone → low buy-in → low execution. Collaborate instead.</p>
+        </section>
+
+        <section>
+            <h2>How to Track OKRs</h2>
+
+            <h3>Weekly Check-In (15 minutes)</h3>
+            <p>Template:</p>
+            <table>
+                <tr>
+                    <th>OKR</th>
+                    <th>Target</th>
+                    <th>Current</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>KR1: Users 50K→100K</td>
+                    <td>100K</td>
+                    <td>75K</td>
+                    <td>75%</td>
+                    <td>🟢 On track</td>
+                </tr>
+                <tr>
+                    <td>KR2: Retention 40%→60%</td>
+                    <td>60%</td>
+                    <td>48%</td>
+                    <td>80%</td>
+                    <td>🟡 At risk</td>
+                </tr>
+            </table>
+
+            <h3>Quarterly Review (60 minutes)</h3>
+            <ol>
+                <li><strong>Score each OKR</strong> (0-100%)</li>
+                <li><strong>Determine reasons</strong> (hit or miss)</li>
+                <li><strong>Extract learnings</strong> (what worked, what didn't)</li>
+                <li><strong>Plan next quarter</strong> (what's next)</li>
+            </ol>
+
+            <div class="box-highlight">
+                <h4>70% is GOOD</h4>
+                <p>If you hit 75% of OKRs, that's success. It means you stretched and learned.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Real Examples</h2>
+
+            <h3>Example: SaaS Startup</h3>
+            <div class="box">
+                <p><strong>Objective:</strong> "Become the customer's first choice"</p>
+                <ul>
+                    <li>KR1: Generate 2,000 qualified leads through content (from 200)</li>
+                    <li>KR2: Achieve 40% user retention by end of Q2</li>
+                    <li>KR3: Land 3 Fortune 500 customers</li>
+                    <li>KR4: Improve product NPS from 32 to 55</li>
+                </ul>
+            </div>
+
+            <h3>Example: Solopreneur Coach</h3>
+            <div class="box">
+                <p><strong>Objective:</strong> "Build a 7-figure coaching business that runs on systems, not me"</p>
+                <ul>
+                    <li>KR1: Generate $500K revenue from group programs</li>
+                    <li>KR2: Build email list to 50K engaged subscribers</li>
+                    <li>KR3: Develop and launch 1 certification program</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Resources</h2>
+            <ul>
+                <li><strong>"Measure What Matters" by John Doerr</strong> — The definitive book. Read this.</li>
+                <li><strong>"Radical Focus" by Christina Wodtke</strong> — Faster read, great for creators</li>
+                <li><strong>"High Output Management" by Andy Grove</strong> — The original source. Andy invented OKRs at Intel.</li>
+                <li><strong>Tools:</strong> 15Five, Perdoo, Lattice (OKR tracking) or Google Sheets (free)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Final Thoughts</h2>
+            <p>OKRs are simple in concept but powerful in practice. Setting good OKRs is a skill you'll improve with practice.</p>
+            <p>Your first OKR won't be perfect. That's fine. Set it anyway. Track it. Learn from it. Improve next quarter.</p>
+            <p>Founders who've mastered OKRs consistently move faster, make better decisions, scale their businesses, and have happier teams.</p>
+
+            <div class="box-highlight">
+                <p style="margin: 0;"><strong>Now go set your OKRs. 💜</strong></p>
+            </div>
+        </section>
+
+        <footer>
+            <p>OKR Training Module | Student Notes</p>
+            <p>Built for Mindvalley Entrepreneurship Mastery</p>
+        </footer>
+    </div>
+</body>
+</html>
